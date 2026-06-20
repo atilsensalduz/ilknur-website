@@ -1,8 +1,8 @@
 title: "Klinik Psikolog İlknur Çetin"
 description: "Psikolojik danışmanlık ve terapi hizmetleri"
 lang: "tr"
-url: ""       # deploy sonrası doldurun: https://www.psikologilknur.com
-baseurl: ""
+url: "https://ilknurcetin.com"   # CNAME ile eşleşmeli; www kullanıyorsanız https://www.ilknurcetin.com
+baseurl: ""                      # kök domain → boş bırakın
 
 author:
   name: "İlknur Çetin"
