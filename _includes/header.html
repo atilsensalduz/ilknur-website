@@ -1,0 +1,63 @@
+<header class="site-header" id="site-header" role="banner">
+  <div class="container header-inner">
+
+    <!-- Logo -->
+    <a href="{{ '/' | relative_url }}" class="header-logo" aria-label="{{ site.title }} — Ana Sayfa">
+      <span class="logo-name">{{ site.author.name }}</span>
+      <span class="logo-title">{{ site.author.title }}</span>
+    </a>
+
+    <!-- Desktop navigation -->
+    <nav class="header-nav" aria-label="Ana menü">
+      <ul class="nav-list" role="list">
+        <li><a href="{{ '/' | relative_url }}"                    class="nav-link">Ana Sayfa</a></li>
+        <li><a href="{{ '/pages/hakkimda/' | relative_url }}"     class="nav-link">Hakkımda</a></li>
+        <li><a href="{{ '/pages/hizmetler/' | relative_url }}"    class="nav-link">Hizmetler</a></li>
+        <li><a href="{{ '/blog/' | relative_url }}"               class="nav-link">Blog</a></li>
+        <li><a href="{{ '/pages/iletisim/' | relative_url }}"     class="nav-link">İletişim</a></li>
+      </ul>
+    </nav>
+
+    <!-- Desktop CTA -->
+    <a href="{{ '/pages/iletisim/' | relative_url }}" class="btn btn-primary header-cta">
+      Randevu Al
+    </a>
+
+    <!-- Hamburger (mobile only) -->
+    <button
+      class="hamburger"
+      id="hamburger-btn"
+      type="button"
+      aria-expanded="false"
+      aria-controls="mobile-nav"
+      aria-label="Menüyü aç"
+    >
+      <span class="hamburger-line" aria-hidden="true"></span>
+      <span class="hamburger-line" aria-hidden="true"></span>
+      <span class="hamburger-line" aria-hidden="true"></span>
+    </button>
+
+  </div><!-- /.header-inner -->
+
+  <!-- Mobile nav drawer -->
+  <nav
+    class="mobile-nav"
+    id="mobile-nav"
+    aria-label="Mobil menü"
+    aria-hidden="true"
+  >
+    <ul class="mobile-nav-list" role="list">
+      <li><a href="{{ '/' | relative_url }}"                    class="mobile-nav-link">Ana Sayfa</a></li>
+      <li><a href="{{ '/pages/hakkimda/' | relative_url }}"     class="mobile-nav-link">Hakkımda</a></li>
+      <li><a href="{{ '/pages/hizmetler/' | relative_url }}"    class="mobile-nav-link">Hizmetler</a></li>
+      <li><a href="{{ '/blog/' | relative_url }}"               class="mobile-nav-link">Blog</a></li>
+      <li><a href="{{ '/pages/iletisim/' | relative_url }}"     class="mobile-nav-link">İletişim</a></li>
+      <li>
+        <a href="{{ '/pages/iletisim/' | relative_url }}" class="btn btn-primary mobile-nav-cta">
+          Randevu Al
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+</header>

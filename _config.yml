@@ -1,0 +1,34 @@
+title: "Klinik Psikolog İlknur Çetin"
+description: "Psikolojik danışmanlık ve terapi hizmetleri"
+lang: "tr"
+url: ""       # deploy sonrası doldurun: https://www.psikologilknur.com
+baseurl: ""
+
+author:
+  name: "İlknur Çetin"
+  title: "Klinik Psikolog"
+  phone: "+90 500 123 45 67"
+  email: "info@psikologilknur.com"
+  instagram: "#"
+  linkedin: "#"
+  facebook: "#"
+
+# jekyll-seo-tag
+twitter:
+  username: psikologilknur   # gerçek handle ile değiştirin
+
+# og:image için varsayılan görsel (deploy sonrası tam URL olacak)
+logo: /assets/img/og-default.png
+
+permalink: /blog/:year/:month/:day/:title/
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - README.md

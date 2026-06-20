@@ -1,0 +1,116 @@
+---
+layout: default
+---
+
+{% assign month_num = page.date | date: "%m" %}
+{% assign month_name = site.data.months[month_num] %}
+{% assign words = content | number_of_words %}
+{% assign reading_time = words | divided_by: 200 %}
+{% if reading_time < 1 %}{% assign reading_time = 1 %}{% endif %}
+
+<article class="post-article" itemscope itemtype="https://schema.org/Article">
+
+  <!-- ── Post header ──────────────────────────────────────── -->
+  <header class="post-header">
+    <div class="container post-header-inner">
+
+      {% if page.tags.size > 0 %}
+      <div class="post-tags" aria-label="Etiketler">
+        {% for tag in page.tags %}
+        <a href="{{ '/blog/' | relative_url }}#{{ tag | slugify }}" class="tag-badge">{{ tag }}</a>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      <h1 class="post-title" itemprop="headline">{{ page.title }}</h1>
+
+      <div class="post-meta">
+        <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+          {{ page.date | date: "%-d" }} {{ month_name }} {{ page.date | date: "%Y" }}
+        </time>
+        <span class="post-meta-sep" aria-hidden="true">·</span>
+        <span>{{ reading_time }} dk okuma</span>
+        <span class="post-meta-sep" aria-hidden="true">·</span>
+        <span itemprop="author" itemscope itemtype="https://schema.org/Person">
+          <span itemprop="name">{{ site.author.name }}</span>
+        </span>
+      </div>
+
+      {% if page.excerpt %}
+      <p class="post-excerpt">{{ page.excerpt }}</p>
+      {% endif %}
+
+    </div>
+  </header>
+
+  <!-- ── Post body ────────────────────────────────────────── -->
+  <div class="container">
+    <div class="post-body prose" itemprop="articleBody">
+      {{ content }}
+    </div>
+  </div>
+
+  <!-- ── Post footer: tags ────────────────────────────────── -->
+  {% if page.tags.size > 0 %}
+  <footer class="post-footer">
+    <div class="container">
+      <div class="post-footer-tags">
+        <span class="post-footer-label">Etiketler:</span>
+        <div class="post-tags" aria-label="Etiketler">
+          {% for tag in page.tags %}
+          <a href="{{ '/blog/' | relative_url }}#{{ tag | slugify }}" class="tag-badge">{{ tag }}</a>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </footer>
+  {% endif %}
+
+  <!-- ── Prev / Next navigation ───────────────────────────── -->
+  <nav class="post-nav" aria-label="Yazılar arası gezinti">
+    <div class="container post-nav-inner">
+
+      {% if page.previous %}
+      {% assign prev_month = page.previous.date | date: "%m" %}
+      <a href="{{ page.previous.url | relative_url }}" class="post-nav-item post-nav-prev">
+        <span class="post-nav-label">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round"
+               stroke-linejoin="round" aria-hidden="true">
+            <polyline points="15 18 9 12 15 6"/>
+          </svg>
+          Önceki Yazı
+        </span>
+        <span class="post-nav-title">{{ page.previous.title }}</span>
+        <time class="post-nav-date" datetime="{{ page.previous.date | date_to_xmlschema }}">
+          {{ page.previous.date | date: "%-d" }} {{ site.data.months[prev_month] }} {{ page.previous.date | date: "%Y" }}
+        </time>
+      </a>
+      {% else %}
+      <span class="post-nav-item post-nav-empty"></span>
+      {% endif %}
+
+      {% if page.next %}
+      {% assign next_month = page.next.date | date: "%m" %}
+      <a href="{{ page.next.url | relative_url }}" class="post-nav-item post-nav-next">
+        <span class="post-nav-label">
+          Sonraki Yazı
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round"
+               stroke-linejoin="round" aria-hidden="true">
+            <polyline points="9 18 15 12 9 6"/>
+          </svg>
+        </span>
+        <span class="post-nav-title">{{ page.next.title }}</span>
+        <time class="post-nav-date" datetime="{{ page.next.date | date_to_xmlschema }}">
+          {{ page.next.date | date: "%-d" }} {{ site.data.months[next_month] }} {{ page.next.date | date: "%Y" }}
+        </time>
+      </a>
+      {% else %}
+      <span class="post-nav-item post-nav-empty"></span>
+      {% endif %}
+
+    </div>
+  </nav>
+
+</article>
