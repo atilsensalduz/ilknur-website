@@ -1,4 +1,4 @@
-# Klinik Psikolog İlknur Çetin — Web Sitesi
+# Klinik Psikolog İlknur Çetin Web Sitesi
 
 Jekyll tabanlı, GitHub Pages üzerinde yayınlanan kişisel psikolog sitesi.
 
@@ -51,9 +51,3 @@ Her `main` push'unda `.github/workflows/deploy.yml` otomatik çalışır:
 3. `_site/` klasörü GitHub Pages'e deploy edilir
 
 Workflow durumunu GitHub → **Actions** sekmesinden takip edebilirsiniz.
-
-## Domein Değiştirmek
-
-1. `CNAME` dosyasının içeriğini yeni domain ile güncelleyin (örn. `psikologilknur.com`)
-2. `_config.yml` içindeki `url:` satırını eşleşecek şekilde güncelleyin
-3. DNS sağlayıcınızda GitHub Pages'e yönlendirme ayarlayın
